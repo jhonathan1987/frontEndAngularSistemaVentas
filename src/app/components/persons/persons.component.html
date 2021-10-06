@@ -1,0 +1,29 @@
+<button class="btn btn-primary" (click)="goAdd()">Agregar Person</button>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Direccion</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of persons">
+      <td scope="row">{{person.id}}</td>
+      <td> {{person.name}}</td>
+      <td> {{person.lastName}}</td>
+      <td> {{person.email}}</td>
+      <td> {{person.phone}}</td>
+      <td> {{person.address}}</td>
+      <td class="action">
+        <a [routerLink]="['/', person.id]" > <i class="fas fa-edit"></i> </a>
+        <a type="button" (click)="deletePerson(person)"><i class="fas fa-trash-alt"></i></a>
+      </td>
+    </tr>
+
+  </tbody>
+</table>

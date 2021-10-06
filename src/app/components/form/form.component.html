@@ -1,0 +1,31 @@
+<form #f="ngForm" (ngSubmit)="f.form.valid && personSave()">
+    <div class="form-row">
+        <div class="form-group ">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Nombre" [(ngModel)]="name" required>
+        </div>
+        <div class="form-group ">
+            <label for="lastName">Aplellido</label>
+            <input type="text" class="form-control" name="lastName" placeholder="Apellido" [(ngModel)]="lastName"
+                required>
+        </div>
+    </div>
+    <div class="form-group ">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="email" required>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="phone">Telefono</label>
+        <input type="text" class="form-control" name="phone" placeholder="Telefono" [(ngModel)]="phone" required>
+    </div>
+    <div class="form-group ">
+        <label for="address">Direccion</label>
+        <input type="text" class="form-control" name="address" placeholder="Direccion" [(ngModel)]="address" required>
+    </div>
+
+    <button *ngIf="id!=null" type="submit" class="btn btn-primary mb-5 mt-2">Editar</button>
+    <button *ngIf="id==null" type="submit" class="btn btn-primary mb-5 mt-2">Agregar</button>
+
+    <!-- <button *ngIf="id != null" type="submit" style="cursor: pointer" class="buttonRed"
+            (click)="onEliminarPersona()">-</button>-->
+</form>
