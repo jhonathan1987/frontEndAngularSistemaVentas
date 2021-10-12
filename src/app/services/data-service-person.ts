@@ -5,7 +5,7 @@ import { Person } from '../models/person.model';
 
 
 @Injectable()
-export class DataService {
+export class DataServicePerson {
 
   constructor(private httpClient: HttpClient) { }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataService } from './data-service';
+import { DataServicePerson } from './data-service-person';
 import { Person } from '../models/person.model';
 
 @Injectable()
@@ -7,7 +7,7 @@ export class PersonService {
 
   persons: Person[] = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataServicePerson: DataServicePerson) { }
 
 
 
@@ -16,12 +16,12 @@ export class PersonService {
   }
 
   getPersons() {
-    return this.dataService.loadPersons();
+    return this.dataServicePerson.loadPersons();
   }
 
   personAdd(person: Person) {
     console.log('persona a agregar:' + person.name);
-    this.dataService.personAdd(person)
+    this.dataServicePerson.personAdd(person)
       .subscribe(
         (person: Person) => {
           // Recuperamos objeto Persona con el idPersona recien agregado
@@ -36,7 +36,7 @@ export class PersonService {
     console.log('eliminar persona con id:' + id);
     const index = this.persons.findIndex(person => person.id == id); //encontramos el indice en el arreglo
     this.persons.splice(index, 1);
-    this.dataService.deletePerson(id);
+    this.dataServicePerson.deletePerson(id);
   }
 
   findPerson(id: number):any {
@@ -55,6 +55,6 @@ export class PersonService {
     console.log("persona a modificar " + person.id);
     //  const personToUpdateLocate=this.persons.find(person=>person.id==1);
     //  personToUpdateLocate.id=person.id;
-    this.dataService.personUpdate(person);
+    this.dataServicePerson.personUpdate(person);
   }
 }
